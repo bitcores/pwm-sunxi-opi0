@@ -20,16 +20,14 @@ MODULE_VERSION("0.1");
 static struct class pwm_class;
 struct kobject *pwm0_kobj;
 
-static struct attribute *pwm_class_attrs[] = {
-  NULL
+static struct class_attribute pwm_class_attrs[] = {
+  __ATTR_NULL
 };
-
-ATTRIBUTE_GROUPS(pwm_class);
 
 static struct class pwm_class = {
   .name =         "pwm-sunxi-opi0",
   .owner =        THIS_MODULE,
-  .class_groups =  pwm_class_groups,
+  .class_groups =  pwm_class_attrs,
 };
 
 enum h2plus_pwm_prescale {
